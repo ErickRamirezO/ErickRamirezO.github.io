@@ -9,8 +9,8 @@
 	<link rel="stylesheet" href="css/nav.css" />
 	<link href="https://fonts.googleapis.com/css2?family=Arvo&display=swap" rel="stylesheet">
 	<link rel="icon" href="img/iconoweb.ico" />
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-	 crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+		integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<title>Error 404</title>
 	<meta name="description" content="Error 404 ponte pilas">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -35,50 +35,54 @@
 </head>
 
 <body>
-	<button onclick="topFunction()" id="myBtn" title="Go to top"><b>Subir 	&#11014;&#65039;</b></button>
-<article>
-<div class="row" style="font-family:Arvo">
-<div class="col x12 element1 z-depth-5 animate__animated animate__headShake animate__infinite animate__delay-2s animate__slow" style="padding:100px;">
-<h2 class="center-align h3error" style="text-shadow:1px 1px 5px white;">Error <span class="c404"></span></h2><br>
-<h5 class="white-text seconds">En 6 segundos serás redireccionado a la página principal</h5><br>
-<h5 class="center-align animate__animated animate__flipInX animate__delay-3s" style="text-shadow:1px 1px 5px white;">Ponte pilas</h5>
-</div>
+	<button onclick="topFunction()" id="myBtn" title="Go to top"><b>Subir &#11014;&#65039;</b></button>
+	<article>
+		<div class="row" style="font-family:Arvo">
+			<div class="col x12 element1 z-depth-5 animate__animated animate__headShake animate__infinite animate__delay-2s animate__slow"
+				style="padding:100px;">
+				<h2 class="center-align h3error" style="text-shadow:1px 1px 5px white;">Error <span class="c404"></span>
+				</h2><br>
+				<h5 class="white-text seconds">En 6 segundos serás redireccionado a la página principal</h5><br>
+				<h5 class="center-align animate__animated animate__flipInX animate__delay-3s"
+					style="text-shadow:1px 1px 5px white;">Ponte pilas</h5>
+			</div>
 
-</div>
-</article>
-	
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>	
+		</div>
+	</article>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 	<script src="js/materialize.min.js"></script>
 	<script src="js/anime.min.js"></script>
 	<script src="js/baffle.min.js"></script>
 	<script>
- $(document).ready(function(){
-		let b = baffle(document.querySelector('.seconds'));
-		b.set({
-    speed: 100,
-    characters: '+-•~!=*'
-});
-	b.reveal(1000);
-  });
-  	anime({
-	targets:'.h3error',
-	translateX:[-2000,0],
-	rotate:720,
-	easing:'easeInOutCubic',
-	duration:1000
-	})
-  var numero= 404;
- $(".c404").text(numero);
-  var class404 = document.querySelector('.c404');
-	anime({
-		targets: class404,
-		innerHTML: [0, numero],
-		easing: 'linear',
-		round: 1,
-		delay:800
-	});
-	
- </script>
+		$(document).ready(function () {
+			let b = baffle(document.querySelector('.seconds'));
+			b.set({
+				speed: 100,
+				characters: '+-•~!=*'
+			});
+			b.reveal(1000);
+		});
+		anime({
+			targets: '.h3error',
+			translateX: [-2000, 0],
+			rotate: 720,
+			easing: 'easeInOutCubic',
+			duration: 1000
+		})
+		var numero = 404;
+		$(".c404").text(numero);
+		var class404 = document.querySelector('.c404');
+		anime({
+			targets: class404,
+			innerHTML: [0, numero],
+			easing: 'linear',
+			round: 1,
+			delay: 800
+		});
+
+	</script>
 </body>
+
 </html>
