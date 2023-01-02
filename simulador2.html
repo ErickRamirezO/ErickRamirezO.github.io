@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=UnifrakturMaguntia">
+	<link rel="stylesheet" href="header.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="nav.css" />
+	<link rel="stylesheet" href="css/jqmath-0.4.3.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Arvo&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+	 crossorigin="anonymous">
+	<link rel="icon" href="iconoweb.ico" />
+	<title> Simulador Transformar N°1</title>
+	<meta name="description" content="Simulador">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<style>
+		body {
+			min-height: 100vh;
+		}
+
+		.mll1 {
+			font-weight: 900;
+			text-align: center
+		}
+
+		.ml11 .text-wrapper {
+			position: relative;
+			display: inline-block;
+			padding-right: 0.05em;
+			padding-top: 0.1em;
+			padding-bottom: 0.15em;
+		}
+
+		.ml11 .line {
+			opacity: 0;
+			position: absolute;
+			left: 0;
+			height: 100%;
+			width: 3px;
+			background-color: #01579b;
+			transform-origin: 0 50%;
+		}
+
+		.ml11 .line1 {
+			top: 0;
+			left: 0;
+		}
+
+		.ml11 .letter {
+			display: inline-block;
+			line-height: 1em;
+		}
+
+		sup {
+			top: 0.5em;
+		}
+
+		.material-icons {
+			font-size: 24px !important;
+		}
+
+		sub {
+			bottom: -1.50em;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="center-align" id="preloader" style="display: flex;	align-items: center;	justify-content: center;	background-color: #eee;		position: fixed;	z-index: 100;	top: 0;	left: 0;	right: 0;	bottom: 0;	">
+		<div class="preloader-wrapper big active">
+			<div class="spinner-layer spinner-blue-only">
+				<div class="circle-clipper left">
+					<div class="circle"></div>
+				</div>
+				<div class="gap-patch">
+					<div class="circle"></div>
+				</div>
+				<div class="circle-clipper right">
+					<div class="circle"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<header>
+		<span class="menu">
+<a href="#" class="black-text sidenav-trigger" data-target="mobile-demo"><i class="material-icons">menu</i></a>
+<a href="index.html" class="brand-logo black-text">&#128161; πLAS</a></span>
+<ul class="navbar">
+	<li style="cursor:pointer;">Cuestionarios
+	<ul>
+		<li><a href="matematicacuestionario.html">&#129504; Lógico</a></li>
+		<li><a href="cientificocuestionario.html">&#128214; Verbal</a></li>
+	</ul>
+	</li>
+	<li class="black-text"><a href="documentos.html" class="black-text">Documentos</a></li>
+	<li class="black-text"><a href="videos.html" class="black-text">Videos</a></li>
+	<li class="black-text desactivado"><a href="aprenderconstruccion.html">Aprender <span class="desactivadocaja"> Proximamente</span></a></li>
+	<li class="black-text"><a href="simulador.html" class="black-text">Simulador</a></li>
+</ul>
+</header>
+
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="documentos.html">Documentos</a></li>
+    <li><a href="videos.html">Videos</a></li>
+    <li><a href="simulador.html">Simulador</a></li>
+	<li><a href="aprenderconstruccion.html">Aprender</a></li>
+	<hr>
+	<li><a href="#!" class="">Cuestionarios</a>
+	<ul>
+		<li><a href="matematicacuestionario.html">&#129504; Lógico</a></li>
+		<li><a href="cientificocuestionario.html">&#128214; Verbal</a></li>
+	</ul>
+	</li>
+  </ul>
+<div id="contenido">
+<div CLASS="EAES center-align">
+<h5><b>Bienvenid@ al simulador 1</h5>
+<img src="videos/logo-transformar.png" alt="logotransformar" class="imagetodaunavida">
+<hr>
+</div>
+<div class="tap-target light-blue lighten-3" data-target="menu">
+    <div class="tap-target-content">
+      <h4 style="font-family:Arvo">Utiliza las lupas</h4>
+      <p style="font-family:Arvo">Ya sea para agrandar el contenido o disminuirlo<br>*Da click afuera para cerrar*</p>
+	  <button type="button" class="waves-effect waves-light btn blue darken-2 avisolupas" onclick="cerraravisolupas()">No volver a mostrar</button>
+    </div>
+ </div>
+
+<div class="fixed-action-btn click-to-toggle">
+  <a class="btn-floating btn-large light-blue darken-4 waves-effect waves-light lupahover" id="menu">
+    <i class="large material-icons">search</i>
+  </a>
+  <ul>
+    <li><a class="btn-floating  light-blue darken-1 waves-effect waves-light lupahover"><i class="material-icons" id="lupamas">zoom_in</i><b>Ampliar</b></a></li>
+    <li><a class="btn-floating light-blue darken-2 waves-effect waves-light lupahover"><i class="material-icons" id="lupamenos">zoom_out</i><b>Disminuir</b></a></li>
+	<li class="search"><a class="btn-floating light-blue darken-3 waves-effect waves-light lupahover"><i class="material-icons" id="lupanormal">search</i><b>Normal</b></a></li>
+  </ul>
+</div>
+  
+<div class="tablasimulador iniciohide indicadorespuestas">
+    <div class="center-align nombre" style="font-family:Arvo;user-select:none;font-size: 1.64rem">Nombre del estudiante <div class="iniciohide center-align nombreuser hoverable" style="font-size:1.15rem;font-family:Arvo;border-radius:7px;"></div></div><br>
+	<div class="circle center-align videocam" id="videocam"><br><br>
+	</div>
+</div>
+
+<main>
+
+<div class="center-align empiezotexto">
+<p id="empiezosimu2" class="iniciohide waves-effect waves-light btn orange lighten-2 black-text pulse" onclick="launchFullScreen(document.documentElement);" style="margin:10px"><b>EMPEZAR</b></p>
+</div>
+<div class="numerodecedulaia numerocedula">TU NÚMERO DE CI VA AQUI</div>
+<div class="numerodecedulada numerocedula">TU NÚMERO DE CI VA AQUI</div>
+<div class="numerodecedulac numerocedula">TU NÚMERO DE CI VA AQUI</div>
+<div class="numerodecedulaib numerocedula">TU NÚMERO DE CI VA AQUI</div>
+<div class="numerodeceduladb numerocedula">TU NÚMERO DE CI VA AQUI</div>
+<div class="box iniciohide" id="simu2">
+<div class="header">
+<div class="scoreBox valign-wrapper"><h5 style="font-family:Arvo;user-select:none">Sesión termina en:  <span id="tiemposesion"></span></h5></div>
+</div>
+<div class="textopregunta">
+</div>
+<div class="opcionesderespuestas">
+
+		<span class="hoverable" onclick="checkAnswer(this)"></span>
+        <span class="hoverable" onclick="checkAnswer(this)"></span>
+        <span class="hoverable" onclick="checkAnswer(this)"></span>
+        <span class="hoverable" onclick="checkAnswer(this)"></span>
+</div>
+<div class="footer">
+<button id="versimu2" class="iniciohide waves-effect waves-light btn blue darken-1 hoverable center-align" onclick="mostrarresult(1)">VER PUNTAJE TOTAL</button></div>
+<button type="button" class="waves-effect waves-light btn blue darken-2 simu2siguientem botonsiguientesimulador" onclick="mostrarsiguientepregunta()"><b>► Siguiente</b></button>
+<button type="button" class="iniciohide waves-effect waves-light btn blue darken-2 simu2cambiarespuesta botonsiguientesimulador"><b>Cambiar respuesta</b></button>
+</div>
+
+<div class="iniciohide resultados center-align">
+<p id="puntostotaless2" class="center-align"></p>
+<p id="puntossobremils2" class="center-align"></p>
+<b id="correctass2" class="center-align"></b><br>
+<b id="incorrectass2" class="center-align"></b>
+<p class="iniciohide tiemporestantes2 center-align"></p><br>
+
+
+<div class="barraprogreso">
+<h6 class="center-align progressbar" style="font-family:Arvo">Tus barras de progreso en este simulador son:</h6>
+<h6 class="center-align progressbar" style="font-family:Arvo">Razonamiento Numérico</h6>
+<div class="containers1 hoverable progressbar">
+  <div class="skills DominioMatemático center-align" id="DominioMatemáticos2">0%</div>
+</div>
+
+<h6 class="center-align progressbar" style="font-family:Arvo">Razonamiento Verbal</h6>
+<div class="containers1 hoverable progressbar">
+  <div class="skills DominioLingüístico center-align" id="DominioLingüístico1">0%</div>
+</div>
+
+<h6 class="center-align progressbar" style="font-family:Arvo">Razonamiento Lógico</h6>
+<div class="containers1 hoverable progressbar">
+  <div class="skills DominioCientífico center-align" id="DominioCientífico1">0%</div>
+</div>
+
+<h6 class="center-align progressbar" style="font-family:Arvo">Atención y Concentración</h6>
+<div class="containers1 hoverable progressbar">
+  <div class="skills DominioSocial center-align" id="DominioSocial1">0%</div>
+</div><br>
+<div class="center-align">
+<p style="font-family:Arvo"><b>Captura tomada durante el simulador</b></p>
+<div class="evidencia_foto1" id="evidencia_foto1">
+</div>
+</div>
+<button type="button" class="iniciohide waves-effect waves-light btn green darken-2 Reload center-align pulse" style="margin:20px 0px">Intentar de nuevo este simulador</button>
+<button type="button" class="waves-effect waves-light btn blue darken-2 center-align pulse" style="margin:20px 0px" id="imprimir">VER HOJA DE ACIERTOS</button>
+</div>
+
+</div>
+
+<div class="iniciohide barraprogreso coitable">
+
+	<h4 class="ml11 center-align no-print">
+  <span class="text-wrapper">
+    <span class="line line1"></span>
+    <span class="letters" style="font-family:Arvo">Resultados</span>
+  </span>
+	</h4>
+
+<table class="tableimp" background="fisicaEAES/pilas.png" style="background-repeat: no-repeat;
+  background-position: center;font-weight:bold;">
+        <thead>
+		<tr><th colspan="4" class="center-align user"></th>
+		<th colspan="3" class="center-align user"></th></tr>
+          <tr>
+              <th class="center-align">Razonamiento<br>Numérico</th>
+              <th class="center-align" colspan="2">Razonamiento<br>Verbal</th>
+              <th class="center-align" colspan="2">Razonamiento<br>Lógico</th>
+			  <th class="center-align">Atención<br>y<br>Concentración</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td class="hoverable">
+				<ol style="padding-left:25px">
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+				</ol>
+			</td>
+            <td class="hoverable">
+				<ol style="padding-left:25px">
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+				</ol>
+			</td>
+			<td class="hoverable">
+				<ol start="13" style="padding-left:25px">
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+				</ol>
+			</td>
+            <td class="hoverable">
+				<ol style="padding-left:25px">
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+				</ol>
+			</td>
+			<td class="hoverable"><ol start="17" style="padding-left:25px">
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+				</ol></td>
+			<td class="hoverable">
+				<ol style="padding-left:25px">
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+				</ol>
+			</td>
+          </tr>
+        </tbody>
+      </table>
+	
+	<ul class="iniciohide collapsible mobilecoi popout" style="font-family:Arvo">
+    <li class="collapsemate">
+      <div class="collapsible-header"><i class="material-icons" style="color:#4fc3f7">school</i>Razonamiento<br>Numérico</div>
+      <div class="collapsible-body">
+				<ol>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+				</ol>
+		</div>
+    </li>
+    <li class="collapselengua">
+      <div class="collapsible-header"><i class="material-icons" style="color:#e57373">school</i>Razonamiento<br>Verbal</div>
+      <div class="collapsible-body">
+				<ol>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+				</ol>
+		</div>
+    </li>
+    <li class="collapsecien">
+      <div class="collapsible-header"><i class="material-icons" style="color:#81c784">school</i>Razonamiento<br>Lógico</div>
+      <div class="collapsible-body">
+				<ol>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+				</ol>
+		</div>
+    </li>
+	<li class="collapsesocial">
+      <div class="collapsible-header"><i class="material-icons" style="color:#a1887f">school</i>Atención<br>y<br>Concentración</div>
+      <div class="collapsible-body">
+				<ol>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+					<li class="coi"></li>
+				</ol>
+		</div>
+    </li>
+  </ul>
+	  <br>
+	  
+	  <div class="center-align"><button type="button" class="iniciohide waves-effect waves-light btn green darken-2 Reload pulse no-print repeat" style="width:220px">Intentar de nuevo</button>
+<button type="button" class="waves-effect waves-light btn red darken-2 center-align pulse no-print" style="width:220px" id="imprimir2"> <i class="material-icons small">print</i> IMPRIMIR</button></div>
+	  <br>
+	  <div class="progressbar2">
+	  <h6 class="center-align" style="font-family:Arvo">Tus barras de progreso en este simulador son:</h6>
+<h6 class="center-align" style="font-family:Arvo">Razonamiento Numérico</h6>
+<div class="containers1 hoverable">
+  <div class="skills DominioMatemático center-align" id="DominioMatemáticos2">0%</div>
+</div>
+
+<h6 class="center-align" style="font-family:Arvo">Razonamiento Verbal</h6>
+<div class="containers1 hoverable">
+  <div class="skills DominioLingüístico center-align" id="DominioLingüístico1">0%</div>
+</div>
+
+<h6 class="center-align" style="font-family:Arvo">Razonamiento Lógico</h6>
+<div class="containers1 hoverable">
+  <div class="skills DominioCientífico center-align" id="DominioCientífico1">0%</div>
+</div>
+
+<h6 class="center-align" style="font-family:Arvo">Atención y Concentración</h6>
+<div class="containers1 hoverable">
+  <div class="skills DominioSocial center-align" id="DominioSocial1">0%</div>
+</div>
+</div>
+</div>
+
+</main>
+</div>
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>	
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.all.min.js"></script>
+	<script src="https://unpkg.com/function-plot/dist/function-plot.js"></script>
+	<script src="js/sweetAlertSIMU.js"></script>
+	<script src="js/simu2.js"></script>
+	<script src="js/jQuery.print.min.js"></script>
+	<script src="js/jqmath-etc-0.4.6.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+	<script src="js/webcam.min.js"></script>
+	<script src="js/anime.min.js"></script>
+	<script src="js/materialize.min.js"></script>
+	<script>
+ $(document).ready(function(){
+	$('.sidenav').sidenav();
+	$('.collapsible').collapsible();
+	$('.tap-target').tapTarget();
+	$('.fixed-action-btn').floatingActionButton({
+    direction: 'left',
+	hoverEnabled: true
+  });
+  $("#imprimir2").click(function(){
+		$(".coitable").print({noPrintSelector: ".no-print",title: "Pilas, tu canal de estudios",append:"<br>Gracias por usar este simulador<br>Sígueme en mis Redes Sociales<br><ul><li><b class='purple-text'>Instagram</b>: pilasoficial</li><li><b class='red-text'>Youtube</b>: Pilas</li></ul>"});
+	});
+  });
+ </script>
+ <script>
+ window.addEventListener('load',()=>{
+ cargacompleta();
+ function cargacompleta(){
+ $('#preloader').fadeOut(1000);
+ $('#contenido').show();
+ }
+ })
+ </script>
+ <script>
+anime.timeline({loop: false})
+  .add({
+    targets: '.swal2-title',
+    opacity:[0,1],
+		easing: 'linear',
+  })
+  .add({
+    targets: '.swal2-content',
+    scale:[0,1],
+		easing: 'easeOutExpo'
+  })
+   .add({
+    targets: '.swal2-confirm, .swal2-deny',
+    scale:[0,1],
+		easing: 'easeOutExpo'
+  })
+  .add({
+    targets: '.swal2-footer',
+    scale:[0,1],
+		easing: 'easeOutExpo'
+  })
+ </script>
+ <script>
+function launchFullScreen(element) {
+  if(element.requestFullScreen) {
+    element.requestFullScreen();
+  } else if(element.mozRequestFullScreen) {
+    element.mozRequestFullScreen();
+  } else if(element.webkitRequestFullScreen) {
+    element.webkitRequestFullScreen();
+  }
+}
+</script>
+</body>
+</html>
